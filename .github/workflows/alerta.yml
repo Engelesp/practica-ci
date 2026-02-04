@@ -1,0 +1,26 @@
+name: Alerta CI Hola Mundo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notificar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Ejecutar Hola Mundo
+        run: node index.js
+
+      - name: Enviar notificación a ntfy
+        run: |
+          curl -X POST \
+          -H "Title: 🚀 Push a main" \
+          -H "Priority: 4" \
+          -H "Tags: github,ci,devops" \
+          -d "Se ha subido código al branch main del repositorio ${{ github.repository }}" \
+          https://ntfy.sh/engel
