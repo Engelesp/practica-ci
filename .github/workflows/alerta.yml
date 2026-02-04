@@ -23,4 +23,4 @@ jobs:
           -H "Priority: 4" \
           -H "Tags: github,ci,devops" \
           -d "Se ha subido código al branch main del repositorio ${{ github.repository }}" \
-          https://ntfy.sh/engel
+          https://ntfy.sh/devops-itla
